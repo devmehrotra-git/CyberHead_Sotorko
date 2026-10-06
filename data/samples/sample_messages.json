@@ -5,9 +5,10 @@
     "language": "bn",
     "script": "bengali",
     "label": "scam",
-    "scam_category": "phishing",
+    "scam_category": "identity_account",
     "red_flags": ["urgent_action", "request_for_otp", "suspicious_link"],
     "source_type": "synthetic_example",
+    "source_reference": "documentation example only",
     "is_example": true,
     "split": null
   },
@@ -20,6 +21,7 @@
     "scam_category": "none",
     "red_flags": [],
     "source_type": "synthetic_example",
+    "source_reference": "documentation example only",
     "is_example": true,
     "split": null
   },
@@ -29,9 +31,10 @@
     "language": "banglish",
     "script": "latin",
     "label": "scam",
-    "scam_category": "lottery_prize",
+    "scam_category": "employment_financial_opportunity",
     "red_flags": ["unrealistic_reward", "advance_fee", "request_for_payment"],
     "source_type": "synthetic_example",
+    "source_reference": "documentation example only",
     "is_example": true,
     "split": null
   },
@@ -44,6 +47,7 @@
     "scam_category": "none",
     "red_flags": [],
     "source_type": "synthetic_example",
+    "source_reference": "documentation example only",
     "is_example": true,
     "split": null
   },
@@ -53,9 +57,10 @@
     "language": "hi",
     "script": "devanagari",
     "label": "scam",
-    "scam_category": "phishing",
+    "scam_category": "identity_account",
     "red_flags": ["urgent_action", "request_for_otp", "credential_harvesting"],
     "source_type": "synthetic_example",
+    "source_reference": "documentation example only",
     "is_example": true,
     "split": null
   },
@@ -68,6 +73,7 @@
     "scam_category": "none",
     "red_flags": [],
     "source_type": "synthetic_example",
+    "source_reference": "documentation example only",
     "is_example": true,
     "split": null
   },
@@ -77,9 +83,10 @@
     "language": "en",
     "script": "latin",
     "label": "scam",
-    "scam_category": "delivery_scam",
+    "scam_category": "banking_payment",
     "red_flags": ["urgent_action", "request_for_payment", "suspicious_link"],
     "source_type": "synthetic_example",
+    "source_reference": "documentation example only",
     "is_example": true,
     "split": null
   },
@@ -92,6 +99,7 @@
     "scam_category": "none",
     "red_flags": [],
     "source_type": "synthetic_example",
+    "source_reference": "documentation example only",
     "is_example": true,
     "split": null
   }

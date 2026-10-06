@@ -20,6 +20,7 @@ The canonical record is represented as JSON or as one row in a CSV export.
 | `scam_category` | enum | yes | A category from the taxonomy below; genuine records use `none`. |
 | `red_flags` | array of enum values | yes | Zero or more red flags from the taxonomy below. |
 | `source_type` | enum | yes | Provenance classification from the values below. |
+| `source_reference` | string | yes | Human-readable provenance reference, such as a source ID, citation, or collection note. |
 | `is_example` | boolean | yes | `true` for documentation examples; examples are never evaluation data. |
 | `split` | enum or null | yes | `train`, `validation`, or `test` for dataset records; `null` for example-only records. |
 
@@ -52,18 +53,15 @@ Example-only records may set `is_example` to `true` and `split` to `null`. They 
 
 ### Scam categories
 
+The `scam_category` taxonomy is locked to exactly these five values:
+
+- `banking_payment` — Fraud involving payments, transfers, wallets, or banking.
+- `government_utility` — Fraud impersonating or abusing government, utility, or public-service workflows.
+- `employment_financial_opportunity` — Fraudulent jobs, investments, prizes, grants, or other financial opportunities.
+- `identity_account` — Attempts to obtain identity information, credentials, OTPs, or account access.
 - `none` — Required for `genuine` records.
-- `phishing` — Attempts to obtain credentials or sensitive information through a deceptive message or link.
-- `financial_fraud` — Fraud involving payments, transfers, wallets, or banking.
-- `impersonation` — Pretending to be a person, company, authority, or service.
-- `job_scam` — Fraudulent employment or recruitment opportunity.
-- `investment_scam` — Deceptive investment or guaranteed-return opportunity.
-- `romance_scam` — Fraud exploiting a claimed romantic or emotional relationship.
-- `delivery_scam` — Fraud involving parcels, delivery fees, or shipment claims.
-- `account_takeover` — Attempts to gain control of an account or device.
-- `tech_support` — Fake technical support or device-compromise claims.
-- `lottery_prize` — Fake prize, lottery, grant, or reward claims.
-- `other` — A scam that does not fit the categories above.
+
+Terms such as phishing, lottery, and delivery describe scam patterns or message context. They must be represented in `red_flags` or explanatory text, never as additional `scam_category` values.
 
 ### Red-flag taxonomy
 
@@ -91,6 +89,10 @@ Example-only records may set `is_example` to `true` and `split` to `null`. They 
 - `moderation_review` — Collected or confirmed during a moderation review.
 - `expert_curated` — Curated or reviewed by a qualified annotator.
 
+### Source reference
+
+`source_reference` identifies where the record came from without embedding sensitive source data. For a public report, use a citation or stable report identifier. For a human-submitted or reviewed record, use a consented internal reference. For a synthetic example, use a clear note such as `documentation example only`.
+
 ## Data quality rules
 
 1. Records must be UTF-8 and contain a non-empty `content` value.
@@ -100,7 +102,8 @@ Example-only records may set `is_example` to `true` and `split` to `null`. They 
 5. Annotations must describe the content faithfully and must not add facts absent from the record.
 6. Personally identifying information, live credentials, OTPs, payment details, and active malicious links must be removed or safely redacted before inclusion.
 7. Each record must be reviewed for language and script accuracy.
-8. Example records must have `is_example: true`, `source_type: synthetic_example`, and `split: null`.
+8. `source_reference` must be a non-empty provenance reference and must not contain secrets or unnecessary personal information.
+9. Example records must have `is_example: true`, `source_type: synthetic_example`, a documentation-only `source_reference`, and `split: null`.
 
 ## Deduplication
 
