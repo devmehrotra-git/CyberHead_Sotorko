@@ -1,0 +1,98 @@
+[
+  {
+    "record_id": "example-bn-001",
+    "content": "আপনার ব্যাংক অ্যাকাউন্ট বন্ধ হয়ে যাবে। এখনই এই লিঙ্কে ক্লিক করে OTP দিন।",
+    "language": "bn",
+    "script": "bengali",
+    "label": "scam",
+    "scam_category": "phishing",
+    "red_flags": ["urgent_action", "request_for_otp", "suspicious_link"],
+    "source_type": "synthetic_example",
+    "is_example": true,
+    "split": null
+  },
+  {
+    "record_id": "example-bn-002",
+    "content": "আগামীকাল বিকেল ৪টায় অভিভাবক সভা হবে। দয়া করে সময়মতো স্কুলে আসবেন।",
+    "language": "bn",
+    "script": "bengali",
+    "label": "genuine",
+    "scam_category": "none",
+    "red_flags": [],
+    "source_type": "synthetic_example",
+    "is_example": true,
+    "split": null
+  },
+  {
+    "record_id": "example-banglish-001",
+    "content": "Apni lottery jitsechen, prize pete age processing fee pathan.",
+    "language": "banglish",
+    "script": "latin",
+    "label": "scam",
+    "scam_category": "lottery_prize",
+    "red_flags": ["unrealistic_reward", "advance_fee", "request_for_payment"],
+    "source_type": "synthetic_example",
+    "is_example": true,
+    "split": null
+  },
+  {
+    "record_id": "example-banglish-002",
+    "content": "Kal shokal 9tay meeting ache, please agenda ta age dekhe neben.",
+    "language": "banglish",
+    "script": "latin",
+    "label": "genuine",
+    "scam_category": "none",
+    "red_flags": [],
+    "source_type": "synthetic_example",
+    "is_example": true,
+    "split": null
+  },
+  {
+    "record_id": "example-hi-001",
+    "content": "आपका बैंक खाता बंद होने वाला है। सत्यापन के लिए अपना ओटीपी साझा करें।",
+    "language": "hi",
+    "script": "devanagari",
+    "label": "scam",
+    "scam_category": "phishing",
+    "red_flags": ["urgent_action", "request_for_otp", "credential_harvesting"],
+    "source_type": "synthetic_example",
+    "is_example": true,
+    "split": null
+  },
+  {
+    "record_id": "example-hi-002",
+    "content": "कल पुस्तकालय सुबह दस बजे खुलेगा और शाम छह बजे बंद होगा।",
+    "language": "hi",
+    "script": "devanagari",
+    "label": "genuine",
+    "scam_category": "none",
+    "red_flags": [],
+    "source_type": "synthetic_example",
+    "is_example": true,
+    "split": null
+  },
+  {
+    "record_id": "example-en-001",
+    "content": "Your parcel is held. Pay the delivery fee now using this link to avoid return.",
+    "language": "en",
+    "script": "latin",
+    "label": "scam",
+    "scam_category": "delivery_scam",
+    "red_flags": ["urgent_action", "request_for_payment", "suspicious_link"],
+    "source_type": "synthetic_example",
+    "is_example": true,
+    "split": null
+  },
+  {
+    "record_id": "example-en-002",
+    "content": "The community meeting will take place in Room 2 at 5 PM on Thursday.",
+    "language": "en",
+    "script": "latin",
+    "label": "genuine",
+    "scam_category": "none",
+    "red_flags": [],
+    "source_type": "synthetic_example",
+    "is_example": true,
+    "split": null
+  }
+]
