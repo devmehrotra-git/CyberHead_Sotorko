@@ -227,3 +227,12 @@ Thumbs.db
 # Editor swap files
 *.swp
 *.swo
+
+# External datasets and generated ingestion outputs
+data/external/*
+!data/external/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/README.md
+data/derived/*
+!data/derived/.gitkeep
