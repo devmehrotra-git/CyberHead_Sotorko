@@ -1,0 +1,16 @@
+{
+  "source_id": "bttc_bangla",
+  "dataset_name": "BTTC - A Bangla Tri-class Text Corpus for Spam, Ham, and Promotional Messages",
+  "source_url": "https://data.mendeley.com/datasets/5wrm959d6f/1",
+  "download_date": null,
+  "license": "CC BY 4.0",
+  "citation": "Tahmid, L., Abedin, I., Ahmed, K., Chowdhury, Z. H., & Sultana, B. (2026). BTTC - A Bangla Tri-class Text Corpus for Spam, Ham, and Promotional Messages. Mendeley Data, v1. https://doi.org/10.17632/5wrm959d6f.1.",
+  "original_file_names": ["BTTC - A Bangla Tri-class Text Corpus for Spam, Ha.zip"],
+  "extracted_file_names": ["BTTC.csv", "Readme.txt"],
+  "actual_record_count": 10283,
+  "actual_labels": {"PROMO": 3695, "HAM": 3904, "SPAM": 2684},
+  "inspection_date": "2026-10-07",
+  "observed_file_sizes_bytes": {"BTTC - A Bangla Tri-class Text Corpus for Spam, Ha.zip": 755238, "BTTC.csv": 7616329, "Readme.txt": 5168},
+  "observed_fields": ["Text", "Text_Clean", "Label", "Source", "Annotation_Process"],
+  "notes": "Manually downloaded from the official Mendeley page. Actual row count and labels match the published description. SPAM remains a source label and is not mapped to Sotorko scam."
+}

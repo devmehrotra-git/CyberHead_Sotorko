@@ -1,0 +1,16 @@
+{
+  "source_id": "mendeley_phishing_url",
+  "dataset_name": "Phishing URL dataset",
+  "source_url": "https://data.mendeley.com/datasets/3jddhy2f6s/1",
+  "download_date": null,
+  "license": "CC BY 4.0",
+  "citation": "Wangchuk, T. (2026). Phishing URL dataset. Mendeley Data, v1. https://doi.org/10.17632/3jddhy2f6s.1.",
+  "original_file_names": ["PhiLegit-100K.zip"],
+  "extracted_file_names": ["PhiLegit-100K/PhiLegit-100K.rar", "PhiLegit-100K/README_PhiLegit-100K.md", "PhiLegit-100K/PhiLegit-100K.csv"],
+  "actual_record_count": 100000,
+  "actual_labels": {"0": 50000, "1": 50000},
+  "inspection_date": "2026-10-07",
+  "observed_file_sizes_bytes": {"PhiLegit-100K.zip": 6260539, "PhiLegit-100K.rar": 6258453, "PhiLegit-100K.csv": 116949776, "README_PhiLegit-100K.md": 4525},
+  "observed_fields": ["URL", "label_legit_1_phish_0", "source_dataset", "features_json"],
+  "notes": "Manually downloaded from the official Mendeley page. The nested archive was extracted only to a temporary inspection directory. Actual CSV size is 100,000 rows, not the published approximately 149,726 URLs. The source label field contains exact numeric values 0 and 1; its name indicates 1=legitimate and 0=phishing."
+}
