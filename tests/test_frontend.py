@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from fastapi.testclient import TestClient
+
 from app.main import app
 
 
@@ -87,14 +89,17 @@ def test_frontend_assets_exist_and_reference_api() -> None:
 
 
 def test_frontend_mount_is_registered_after_api_routes() -> None:
-    routes = list(app.routes)
-    api_paths = [getattr(route, "path", "") for route in routes if getattr(route, "path", "").startswith("/api/")]
-    mount_indices = [
-        index
-        for index, route in enumerate(routes)
-        if getattr(route, "name", "") == "frontend" and getattr(route, "path", "") == ""
-    ]
+    client = TestClient(app)
 
-    assert api_paths
-    assert mount_indices
-    assert max(index for index, route in enumerate(routes) if getattr(route, "path", "").startswith("/api/")) < mount_indices[-1]
+    # Verify routes through the public API instead of relying on FastAPI internals.
+    assert {"/api/v1/health", "/api/v1/analyze", "/api/v1/analyze/screenshot"}.issubset(
+        set(app.openapi()["paths"])
+    )
+    health = client.get("/api/v1/health")
+    frontend = client.get("/")
+
+    assert health.status_code == 200
+    assert health.json() == {"status": "healthy"}
+    assert frontend.status_code == 200
+    assert "<html" in frontend.text.lower()
+    assert "Sotorko" in frontend.text
