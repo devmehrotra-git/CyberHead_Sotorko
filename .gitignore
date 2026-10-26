@@ -231,8 +231,14 @@ Thumbs.db
 # External datasets and generated ingestion outputs
 data/external/*
 !data/external/.gitkeep
+!data/external/*/
+data/external/*/*
+!data/external/*/source_metadata.json
 data/processed/*
 !data/processed/.gitkeep
 !data/processed/README.md
 data/derived/*
 !data/derived/.gitkeep
+!data/derived/ml_baseline/
+data/derived/ml_baseline/*
+!data/derived/ml_baseline/tfidf_logistic_regression.joblib

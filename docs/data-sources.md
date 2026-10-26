@@ -90,12 +90,11 @@ Ingestion separates the following concerns:
 Every normalized message record also carries `mapping_status`, which is one of:
 
 - `mapped` — The source label and record were confidently mapped.
-- `excluded` — The record is retained for audit/provenance but excluded from model-ready data.
-- `pending_review` — The record needs a human or licensing review before mapping.
+- `needs_manual_review` — The source label is retained for audit/provenance but is not automatically mapped.
 
-Records that cannot be confidently mapped must be excluded or marked pending review. They must not be guessed into `scam` or `genuine`.
+Records that cannot be confidently mapped must be marked `needs_manual_review`. They must not be guessed into `scam` or `genuine`.
 
-Source `spam` labels must not automatically become Sotorko `scam` labels. Spam can be unwanted advertising, bulk messaging, or nuisance content without being a deceptive financial or identity-related scam. Any mapping must be source-specific, documented, and reviewable; otherwise the record remains excluded or pending review.
+Source `spam` labels must not automatically become Sotorko `scam` labels. Spam can be unwanted advertising, bulk messaging, or nuisance content without being a deceptive financial or identity-related scam. Any mapping must be source-specific, documented, and reviewable; otherwise the record remains `needs_manual_review`.
 
 ## URL separation
 
