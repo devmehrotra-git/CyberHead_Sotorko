@@ -258,6 +258,8 @@ def test_ocr_failure_returns_no_classification_signal(monkeypatch: pytest.Monkey
 
 
 def test_api_paths_and_response_fields_remain_versioned() -> None:
-    paths = {route.path for route in app.routes if getattr(route, "path", "").startswith("/api/")}
+    # FastAPI versions may represent included routers differently in app.routes.
+    # OpenAPI is the stable public contract for the versioned endpoints.
+    paths = set(app.openapi()["paths"])
     assert {"/api/v1/health", "/api/v1/analyze", "/api/v1/analyze/screenshot"}.issubset(paths)
 
