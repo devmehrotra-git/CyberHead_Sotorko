@@ -1,0 +1,1 @@
+"""URL checking service placeholder."""

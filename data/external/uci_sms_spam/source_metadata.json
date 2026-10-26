@@ -1,0 +1,15 @@
+{
+  "source_id": "uci_sms_spam_collection",
+  "dataset_name": "UCI SMS Spam Collection",
+  "source_url": "https://archive.ics.uci.edu/dataset/228/sms%2Bspam%2Bcollection",
+  "download_date": "2026-10-07",
+  "license": "CC BY 4.0",
+  "citation": "Almeida, T. & Hidalgo, J. (2011). SMS Spam Collection [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5CC84.",
+  "original_file_names": ["sms+spam+collection.zip", "SMSSpamCollection", "readme"],
+  "actual_record_count": 5574,
+  "actual_labels": {"ham": 4827, "spam": 747},
+  "inspection_date": "2026-10-07",
+  "observed_file_sizes_bytes": {"sms+spam+collection.zip": 203415, "SMSSpamCollection": 477907, "readme": 5868},
+  "observed_fields": ["line_number", "label", "content"],
+  "notes": "Downloaded from the official UCI archive URL. The ZIP is preserved exactly; extracted files are retained for inspection. Original labels ham and spam are preserved and are not mapped to Sotorko labels."
+}

@@ -1,0 +1,16 @@
+{
+  "source_id": "mendeley_sms_phishing",
+  "dataset_name": "SMS PHISHING DATASET FOR MACHINE LEARNING AND PATTERN RECOGNITION",
+  "source_url": "https://data.mendeley.com/datasets/f45bkkt8pr/1",
+  "download_date": null,
+  "license": "CC BY 4.0",
+  "citation": "Mishra, S. & Soni, D. (2022). SMS PHISHING DATASET FOR MACHINE LEARNING AND PATTERN RECOGNITION. Mendeley Data, v1. https://doi.org/10.17632/f45bkkt8pr.1.",
+  "original_file_names": ["Dataset_5971.zip"],
+  "extracted_file_names": ["Dataset_5971.csv"],
+  "actual_record_count": 5971,
+  "actual_labels": [{"label": "ham", "count": 4844}, {"label": "Smishing", "count": 616}, {"label": "spam", "count": 466}, {"label": "Spam", "count": 23}, {"label": "smishing", "count": 22}],
+  "inspection_date": "2026-10-07",
+  "observed_file_sizes_bytes": {"Dataset_5971.zip": 244698, "Dataset_5971.csv": 595987},
+  "observed_fields": ["LABEL", "TEXT", "URL", "EMAIL", "PHONE"],
+  "notes": "Manually downloaded from the official Mendeley page. Original labels are preserved exactly, including case variants."
+}

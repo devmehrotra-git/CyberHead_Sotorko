@@ -188,7 +188,7 @@ cython_debug/
 #   be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
 #   and can be added to the global gitignore or merged into this file.  For a more nuclear
 #   option (not recommended) you can uncomment the following to ignore the entire idea folder.
-# .idea/
+.idea/
 
 # Abstra
 #   Abstra is an AI-powered process automation framework.
@@ -201,7 +201,7 @@ cython_debug/
 #   can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
 #   and can be added to the global gitignore or merged into this file. However, if you prefer, you
 #   could uncomment the following to ignore the entire vscode folder
-# .vscode/
+.vscode/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
 
@@ -218,3 +218,27 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Operating system files
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Editor swap files
+*.swp
+*.swo
+
+# External datasets and generated ingestion outputs
+data/external/*
+!data/external/.gitkeep
+!data/external/*/
+data/external/*/*
+!data/external/*/source_metadata.json
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/README.md
+data/derived/*
+!data/derived/.gitkeep
+!data/derived/ml_baseline/
+data/derived/ml_baseline/*
+!data/derived/ml_baseline/tfidf_logistic_regression.joblib
