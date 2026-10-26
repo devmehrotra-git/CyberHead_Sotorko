@@ -88,8 +88,12 @@ def test_unsupported_bengali_request_is_explicit() -> None:
     )
 
     assert response.status_code == 200
-    assert response.json()["verdict"] == "unsupported"
-    assert "reliable" in response.json()["explanation"]
+    body = response.json()
+    assert body["verdict"] == "unsupported"
+    assert body["analysis_mode"] == "bengali_experimental_rules"
+    assert body["risk_score"] is None
+    assert body["explanation"]
+    assert "নিরাপদ" in body["explanation"]
 
 
 def test_url_request_is_explicitly_unsupported() -> None:
