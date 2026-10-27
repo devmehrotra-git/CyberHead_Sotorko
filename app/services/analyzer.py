@@ -19,7 +19,7 @@ from app.schemas.analysis import (
     ScamCategory,
     Verdict,
 )
-from app.services.english_safety import detect as detect_english_safety
+from app.services.english_safety import detect as detect_english_safety, is_protective_advice
 
 logger = logging.getLogger(__name__)
 DEFAULT_MODEL_PATH = Path(__file__).resolve().parents[2] / "data" / "derived" / "ml_baseline" / "tfidf_logistic_regression.joblib"
@@ -125,6 +125,22 @@ def analyze_text(request: AnalysisRequest) -> AnalysisResponse:
         return _limited(
             request,
             "The current model is validated only for English text. No reliable classification was performed for this language.",
+        )
+
+    if is_protective_advice(request.content):
+        return _response(
+            request=request,
+            status=AnalysisStatus.PREDICTED,
+            verdict=Verdict.NO_OBVIOUS_RED_FLAGS,
+            risk_score=None,
+            detected_language=SUPPORTED_LANGUAGE,
+            explanation=(
+                "This message appears to advise against sharing authentication credentials. "
+                "It is not classified as a credential request, and this result is not proof that the message is safe."
+            ),
+            analysis_mode="english_protective_advice",
+            evidence=["Warns recipients not to share authentication credentials."],
+            safety_guidance="Verify the sender independently; never share OTPs, PINs, or passwords.",
         )
 
     try:
