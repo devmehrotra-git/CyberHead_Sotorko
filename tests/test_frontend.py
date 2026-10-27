@@ -77,7 +77,7 @@ def test_frontend_assets_exist_and_reference_api() -> None:
     assert 'response.verdict === "suspicious"' in bengali_branch
     assert 't("bengaliSuspicious")' in bengali_branch
     assert 't("bengaliInconclusive")' in bengali_branch
-    assert 't("bengaliInconclusiveSummary")' in bengali_branch
+    assert 'resultSummary.textContent = response.verdict === "suspicious" ? t("generalAdvice") : "";' in javascript
     assert 'copy.en.bengaliInconclusiveSummary = "No known warning pattern matched this message. This does not prove it is safe."' in javascript
     assert 'copy.en.bengaliInconclusive = "No sufficient rule-based evidence was found"' in javascript
     assert 't("bengaliInconclusiveSummary")' in javascript
