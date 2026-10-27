@@ -146,6 +146,22 @@ def test_english_safety_rule_overrides_false_negative_without_a_score() -> None:
     assert any("financial/account threat" in item for item in response.evidence)
 
 
+def test_otp_threat_does_not_claim_a_payment_request() -> None:
+    response = analyzer.analyze_text(AnalysisRequest(input_type="text", content="Your bank account will be blocked today. Send your OTP immediately using this link.", language="en", incident_status="unknown"))
+
+    assert response.verdict.value == "suspicious"
+    assert "payment_request" not in {flag.value for flag in response.red_flags}
+    assert not any("payment request" in item.lower() for item in response.evidence)
+
+
+def test_explicit_money_demand_retains_payment_evidence() -> None:
+    response = analyzer.analyze_text(AnalysisRequest(input_type="text", content="Your account will be blocked unless you pay 500 rupees immediately.", language="en", incident_status="unknown"))
+
+    assert response.verdict.value == "suspicious"
+    assert "payment_request" in {flag.value for flag in response.red_flags}
+    assert any("payment request" in item.lower() for item in response.evidence)
+
+
 def test_english_credential_request_is_flagged_but_protective_advice_is_not() -> None:
     request_message = analyzer.analyze_text(AnalysisRequest(input_type="text", content="Please send your OTP to confirm the payment.", language="en", incident_status="unknown"))
     protective = analyzer.analyze_text(AnalysisRequest(input_type="text", content="Never share your OTP with anyone.", language="en", incident_status="unknown"))

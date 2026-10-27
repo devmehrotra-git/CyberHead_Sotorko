@@ -28,7 +28,21 @@ def detect(text: str) -> EnglishSafetyFinding | None:
         credential_request = False
 
     urgent_threat = bool(re.search(r"\b(?:urgent|immediately|now|soon|within\s+\w+|or\s+else|deduct(?:s|ed)?|debit(?:s|ed)?|blocked|suspended|closed|deactivated)\b", value)) and bool(re.search(r"\b(?:account|bank|banking|sim|money|payment|funds|card)\b", value))
-    payment_demand = bool(re.search(r"\b(?:pay|send|transfer|deposit|fee|charge|payment)\b", value))
+    # A credential request may legitimately use "send" (for example, "send
+    # your OTP"). Treat it as a payment demand only when a payment verb is
+    # tied to explicit monetary/payment language.
+    payment_demand = bool(
+        re.search(
+            r"\b(?:pay|send|transfer|wire|deposit|remit)\b.{0,45}"
+            r"(?:money|funds?|payment|fee|charge|cash|amount|rupees?|rs\.?|inr|dollars?|₹|\$|\d[\d,]*)",
+            value,
+        )
+        or re.search(
+            r"(?:money|funds?|payment|fee|charge|cash|amount|rupees?|rs\.?|inr|dollars?|₹|\$|\d[\d,]*)"
+            r".{0,45}\b(?:pay|send|transfer|wire|deposit|remit)\b",
+            value,
+        )
+    )
     reward_claim = bool(re.search(r"\b(?:prize|winner|reward|lottery|cashback|claim)\b", value))
     impersonation = bool(re.search(r"\b(?:bank|police|government|official|support|security team)\b", value))
 

@@ -64,6 +64,7 @@ def test_frontend_assets_exist_and_reference_api() -> None:
     assert "separate from the ML verdict" in javascript
     assert "shared lunch" in javascript
     assert "paymentThreat" in javascript
+    assert "hasExplicitPaymentEvidence" in javascript
     assert 'data.risk_score === null || typeof data.risk_score === "number"' in javascript
     assert "bengali_experimental_rules" in javascript
     assert "analysis-evidence" in html
