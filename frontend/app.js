@@ -136,7 +136,8 @@
     const value = String(text || "").toLowerCase();
     const hasAmount = /(?:₹|\b(?:rs\.?|inr|rupees?)\s*[\d,]+|\b[\d,]+\s*(?:rs\.?|inr|rupees?))/i.test(value);
     const asksToTransfer = /\b(?:send|transfer|wire|deposit)\b.{0,45}\b(?:me|only|now|immediately|urgently|account|number)\b/i.test(value);
-    const paymentThreat = /\b(?:pay|payment|fee|send|transfer)\b.{0,70}\b(?:immediately|urgent(?:ly)?|blocked|suspended|closed|deactivated)\b/i.test(value) || /\b(?:blocked|suspended|closed|deactivated)\b.{0,70}\b(?:pay|payment|fee|send|transfer)\b/i.test(value);
+    const hasExplicitPaymentEvidence = /\b(?:pay|send|transfer|wire|deposit|remit)\b.{0,45}(?:money|funds?|payment|fee|charge|cash|amount|rupees?|rs\.?|inr|dollars?|₹|\$|[\d,]+)/i.test(value) || /(?:money|funds?|payment|fee|charge|cash|amount|rupees?|rs\.?|inr|dollars?|₹|\$|[\d,]+).{0,45}\b(?:pay|send|transfer|wire|deposit|remit)\b/i.test(value);
+    const paymentThreat = hasExplicitPaymentEvidence && (/\b(?:pay|payment|fee|send|transfer|deposit|wire|remit)\b.{0,70}\b(?:immediately|urgent(?:ly)?|blocked|suspended|closed|deactivated)\b/i.test(value) || /\b(?:blocked|suspended|closed|deactivated)\b.{0,70}\b(?:pay|payment|fee|send|transfer|deposit|wire|remit)\b/i.test(value));
     const ordinaryContext = /\b(?:shared lunch|lunch|dinner|split|reimburse(?:ment)?|friend|friends|family|bill|invoice|salary|rent|subscription|purchase|receipt|official app|monthly payment)\b/i.test(value);
     return (!ordinaryContext && hasAmount && asksToTransfer) || (!ordinaryContext && paymentThreat);
   };
