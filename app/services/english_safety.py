@@ -20,9 +20,22 @@ def _normalize(text: str) -> str:
     return re.sub(r"\s+", " ", unicodedata.normalize("NFKC", text).casefold()).strip()
 
 
+def is_protective_advice(text: str) -> bool:
+    """Recognize explicit advice not to disclose authentication credentials."""
+    value = _normalize(text)
+    return bool(
+        re.search(
+            r"\b(?:never|don't|do not|dont|shouldn't|should not)\b.{0,24}"
+            r"\b(?:share|send|give|provide|disclose|tell)\b.{0,24}"
+            r"\b(?:otp|pin|password|passcode|verification code|authentication code|security code)\b",
+            value,
+        )
+    )
+
+
 def detect(text: str) -> EnglishSafetyFinding | None:
     value = _normalize(text)
-    protective = bool(re.search(r"\b(?:never|don't|do not|dont|shouldn't|should not)\b.{0,24}\b(?:share|send|give|provide|disclose|tell)\b.{0,24}\b(?:otp|pin|password|passcode|verification code|authentication code|security code)\b", value))
+    protective = is_protective_advice(text)
     credential_request = bool(re.search(r"\b(?:send|share|provide|give|disclose|tell|enter)\b.{0,32}\b(?:otp|pin|password|passcode|verification code|authentication code|security code)\b", value) or re.search(r"\b(?:otp|pin|password|passcode|verification code|authentication code|security code)\b.{0,32}\b(?:send|share|provide|give|disclose|tell|enter)\b", value))
     if protective or not credential_request:
         credential_request = False

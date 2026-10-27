@@ -169,7 +169,10 @@ def test_english_credential_request_is_flagged_but_protective_advice_is_not() ->
 
     assert request_message.analysis_mode == "english_experimental_rules"
     assert request_message.verdict.value == "suspicious"
-    assert protective.analysis_mode == "english_ml"
+    assert protective.analysis_mode == "english_protective_advice"
+    assert protective.verdict.value == "no_obvious_red_flags"
+    assert protective.risk_score is None
+    assert "not proof" in protective.explanation
     assert arrival.analysis_mode == "english_ml"
 
 
