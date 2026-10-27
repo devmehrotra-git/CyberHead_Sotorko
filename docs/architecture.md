@@ -42,7 +42,7 @@ flowchart TD
     ANALYZE --> ROUTE{Input and language routing}
     ROUTE -->|Explicit Bengali or Bengali-script auto route| BN[Experimental Bengali rule service]
     ROUTE -->|English or heuristic English auto route| EN[English analysis service]
-    ROUTE -->|Unsupported language / URL / uncertain auto input| LIMITED[Explicit unsupported or limited response]
+    ROUTE -->|Unsupported language or English-path URL / uncertain auto input| LIMITED[Explicit unsupported or limited response]
 
     EN --> PROTECT[Protective-advice pattern check]
     PROTECT -->|Matched| ADVICE[No-obvious-red-flags response with no score]
@@ -107,7 +107,7 @@ sequenceDiagram
                 AnalyzerEN->>AnalyzerEN: Apply experimental English safety checks
                 AnalyzerEN-->>Router: Evidence-based warning or baseline result
             end
-        else Unsupported language or URL
+        else Unsupported language or English-path URL
             Router->>AnalyzerEN: Return explicit limited state
             AnalyzerEN-->>Router: Unsupported response, no score
         end
@@ -131,8 +131,9 @@ sequenceDiagram
 3. Explicit Bengali text is sent to the experimental Bengali service.
 4. English text first checks a narrow protective-advice pattern. If that pattern matches, the service returns a cautious no-obvious-red-flags result with no numerical score and an explicit caveat.
 5. Otherwise the English service loads the model bundle (cached per process), obtains the model prediction and estimated scam-class score, and runs the experimental English safety checks. When those checks match, the response is marked suspicious and no numerical score is returned for that rule-based result.
-6. Hindi, Banglish, URL input, and uncertain auto-routed inputs do not receive a reliable supported classification from the main service. Their response must not be treated as a safe verdict.
-7. The frontend displays the result, evidence when available, and safety guidance.
+6. Hindi, Banglish, English-path URL input, and uncertain auto-routed inputs do not receive a reliable supported classification from the main service. Their response must not be treated as a safe verdict.
+7. Implementation caveat: an explicitly Bengali request is currently routed to the Bengali text rules even if its `input_type` is `url`. This only applies text-pattern checks to the submitted content; it is not dedicated URL analysis and must not be presented as URL support.
+8. The frontend displays the result, evidence when available, and safety guidance.
 
 A “no rule matched” or “no obvious red flags” result does not prove safety. The English model score is not a guarantee of safety or fraud, and the Bengali rules do not output a calibrated risk score.
 
