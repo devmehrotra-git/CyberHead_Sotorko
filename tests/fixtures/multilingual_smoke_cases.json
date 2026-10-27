@@ -1,0 +1,37 @@
+[
+  {"record_id":"bn-scam-001","language":"bn","script":"bengali","label":"scam","scenario":"OTP request with account-closure threat","content":"আপনার OTP দিন, না হলে অ্যাকাউন্ট বন্ধ হবে।","synthetic":true},
+  {"record_id":"bn-scam-002","language":"bn","script":"bengali","label":"scam","scenario":"Urgent bank account link","content":"জরুরি! আপনার ব্যাংক অ্যাকাউন্ট বন্ধ হবে, এখনই লিংকে লগইন করুন: https://example.test","synthetic":true},
+  {"record_id":"bn-scam-003","language":"bn","script":"bengali","label":"scam","scenario":"Lottery advance fee","content":"অভিনন্দন! আপনি লটারিতে পুরস্কার জিতেছেন। পুরস্কার পেতে ৫০০ টাকা ফি দিন।","synthetic":true},
+  {"record_id":"bn-scam-004","language":"bn","script":"bengali","label":"scam","scenario":"Job registration fee","content":"ঘরে বসে চাকরি! রেজিস্ট্রেশনের জন্য অগ্রিম ১০০০ টাকা পেমেন্ট করুন।","synthetic":true},
+  {"record_id":"bn-genuine-001","language":"bn","script":"bengali","label":"genuine","scenario":"School schedule announcement","content":"আগামীকাল সকালে স্কুলে ছুটি থাকবে।","synthetic":true},
+  {"record_id":"bn-genuine-002","language":"bn","script":"bengali","label":"genuine","scenario":"Everyday invitation","content":"আজ বিকেলে বাসায় আসবেন? চা খাব।","synthetic":true},
+  {"record_id":"bn-genuine-003","language":"bn","script":"bengali","label":"genuine","scenario":"Protective OTP advice","content":"আপনার OTP কাউকে দেবেন না।","synthetic":true},
+  {"record_id":"bn-genuine-004","language":"bn","script":"bengali","label":"genuine","scenario":"Parent meeting notice","content":"আগামীকাল বিকেল ৪টায় অভিভাবক সভা হবে। দয়া করে সময়মতো স্কুলে আসবেন।","synthetic":true},
+
+  {"record_id":"banglish-scam-001","language":"banglish","script":"latin","label":"scam","scenario":"Romanized OTP and account threat","content":"Apnar OTP ta ekhoni pathan, na hole account bondho hoye jabe.","synthetic":true},
+  {"record_id":"banglish-scam-002","language":"banglish","script":"latin","label":"scam","scenario":"Lottery fee request","content":"Apni lottery jitsechen! Prize pete age 500 taka processing fee pathan.","synthetic":true},
+  {"record_id":"banglish-scam-003","language":"banglish","script":"latin","label":"scam","scenario":"Job advance payment","content":"Work from home job confirm korte registration fee 1000 taka pay korun.","synthetic":true},
+  {"record_id":"banglish-scam-004","language":"banglish","script":"latin","label":"scam","scenario":"Fake delivery payment","content":"Parcel atke ache, delivery pete ei link e ekhoni payment korun: https://example.test","synthetic":true},
+  {"record_id":"banglish-genuine-001","language":"banglish","script":"latin","label":"genuine","scenario":"Meeting reminder","content":"Kal shokal 9tay meeting ache, please agenda ta age dekhe neben.","synthetic":true},
+  {"record_id":"banglish-genuine-002","language":"banglish","script":"latin","label":"genuine","scenario":"Family invitation","content":"Aj bikele bari esho, eksathe cha khabo.","synthetic":true},
+  {"record_id":"banglish-genuine-003","language":"banglish","script":"latin","label":"genuine","scenario":"Protective OTP advice","content":"Tomar OTP ba PIN karo sathe share korbe na.","synthetic":true},
+  {"record_id":"banglish-genuine-004","language":"banglish","script":"latin","label":"genuine","scenario":"Class schedule","content":"Agami kal class 10tay suru hobe, sobai time moto esho.","synthetic":true},
+
+  {"record_id":"hi-scam-001","language":"hi","script":"devanagari","label":"scam","scenario":"OTP request with account threat","content":"आपका बैंक खाता बंद हो जाएगा। अपना OTP तुरंत भेजें।","synthetic":true},
+  {"record_id":"hi-scam-002","language":"hi","script":"devanagari","label":"scam","scenario":"Lottery advance fee","content":"बधाई हो! आपने इनाम जीता है। इनाम पाने के लिए पहले 500 रुपये शुल्क भेजें।","synthetic":true},
+  {"record_id":"hi-scam-003","language":"hi","script":"devanagari","label":"scam","scenario":"Fake job registration payment","content":"घर बैठे नौकरी पाएं। नियुक्ति पक्की करने के लिए अभी 1000 रुपये रजिस्ट्रेशन फीस दें।","synthetic":true},
+  {"record_id":"hi-scam-004","language":"hi","script":"devanagari","label":"scam","scenario":"Urgent delivery fee link","content":"आपका पार्सल रोक दिया गया है। वापस भेजने से बचाने के लिए इस लिंक पर तुरंत भुगतान करें: https://example.test","synthetic":true},
+  {"record_id":"hi-genuine-001","language":"hi","script":"devanagari","label":"genuine","scenario":"Library hours notice","content":"कल पुस्तकालय सुबह दस बजे खुलेगा और शाम छह बजे बंद होगा।","synthetic":true},
+  {"record_id":"hi-genuine-002","language":"hi","script":"devanagari","label":"genuine","scenario":"Family invitation","content":"आज शाम घर आइए, साथ में चाय पीते हैं।","synthetic":true},
+  {"record_id":"hi-genuine-003","language":"hi","script":"devanagari","label":"genuine","scenario":"Protective OTP advice","content":"अपना OTP या PIN किसी के साथ साझा न करें।","synthetic":true},
+  {"record_id":"hi-genuine-004","language":"hi","script":"devanagari","label":"genuine","scenario":"School meeting notice","content":"शुक्रवार को सुबह ग्यारह बजे विद्यालय में अभिभावक बैठक होगी।","synthetic":true},
+
+  {"record_id":"en-scam-001","language":"en","script":"latin","label":"scam","scenario":"OTP request with account threat","content":"Your bank account will be blocked today. Send your OTP immediately using this link.","synthetic":true},
+  {"record_id":"en-scam-002","language":"en","script":"latin","label":"scam","scenario":"Delivery fee pressure","content":"Your parcel is held. Pay the delivery fee now using this link to avoid return: https://example.test","synthetic":true},
+  {"record_id":"en-scam-003","language":"en","script":"latin","label":"scam","scenario":"Lottery advance fee","content":"Congratulations, you won a prize. Pay a 500 rupee processing fee immediately to claim it.","synthetic":true},
+  {"record_id":"en-scam-004","language":"en","script":"latin","label":"scam","scenario":"Job registration fee","content":"Work from home and earn guaranteed income. Transfer a 1000 rupee registration fee today.","synthetic":true},
+  {"record_id":"en-genuine-001","language":"en","script":"latin","label":"genuine","scenario":"Community meeting notice","content":"The community meeting will take place in Room 2 at 5 PM on Thursday.","synthetic":true},
+  {"record_id":"en-genuine-002","language":"en","script":"latin","label":"genuine","scenario":"Family invitation","content":"Would you like to come over this evening for tea?","synthetic":true},
+  {"record_id":"en-genuine-003","language":"en","script":"latin","label":"genuine","scenario":"Protective OTP advice","content":"Never share your OTP or PIN with anyone, even if they claim to be from your bank.","synthetic":true},
+  {"record_id":"en-genuine-004","language":"en","script":"latin","label":"genuine","scenario":"Electricity bill reminder","content":"Your monthly electricity bill is due tomorrow. Please check the official provider app.","synthetic":true}
+]
